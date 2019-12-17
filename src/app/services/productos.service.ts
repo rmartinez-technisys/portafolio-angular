@@ -10,7 +10,7 @@ export class ProductosService {
   productos: ProductoInterface[] = [];
   productosFiltrado: any[] = [];
   constructor(private _http: HttpClient) {
-    this.CargarProductos();
+  this.CargarProductos();
    }
 
   private CargarProductos() {
@@ -51,6 +51,8 @@ private filtrarProductos( termino: string ) {
   // console.log(this.productos);
   this.productosFiltrado = [];
   termino = termino.toLocaleLowerCase();
+  // if prod.categoria.indexOf( termino ) >= { this.productosFiltrado.push( termino )}
+
   this.productos.forEach( prod => {
     const tituloLower = prod.titulo.toLocaleLowerCase();
     if (prod.categoria.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0 ) {
